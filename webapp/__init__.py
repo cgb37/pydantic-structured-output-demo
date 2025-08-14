@@ -7,8 +7,10 @@ def create_app() -> Quart:
 
     # Register blueprints
     from .home import bp as home_bp
+    from .api import bp as api_bp
 
     app.register_blueprint(home_bp)
+    app.register_blueprint(api_bp, url_prefix='/api')
 
     # Add a health endpoint only if it's not already registered. This avoids
     # duplicate endpoint registration when the reloader imports modules twice.
