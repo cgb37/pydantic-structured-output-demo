@@ -10,6 +10,11 @@ services:
       - QUART_APP=app:app
       - QUART_ENV=development
       - QUART_DEBUG=1
+      - LLM_BASE_URL=http://host.docker.internal:11434
+      - LLM_MODEL_NAME=llama3.2:latest
+      - LLM_TIMEOUT=300.0
     command: python -m quart run --host 0.0.0.0 --port 8001 --reload
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - .env
