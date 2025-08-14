@@ -1,0 +1,15 @@
+# Development dependencies
+-r base.txt
+
+# Testing
+pytest>=7.0
+pytest-asyncio>=0.21
+pytest-cov>=4.0
+
+# Development tools
+black>=23.0
+flake8>=6.0
+mypy>=1.0
+
+# Development server (optional, Quart has built-in dev server)
+uvicorn[standard]==0.22.0

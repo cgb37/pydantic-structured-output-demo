@@ -1,0 +1,12 @@
+# Production dependencies
+-r base.txt
+
+# Production ASGI server
+hypercorn>=0.14.0
+
+# Production monitoring and logging
+structlog>=23.0
+sentry-sdk[quart]>=1.0
+
+# Security
+cryptography>=41.0
