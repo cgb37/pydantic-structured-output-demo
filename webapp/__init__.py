@@ -51,5 +51,19 @@ def create_app() -> Quart:
         @app.route("/health", endpoint="health")
         async def health():
             return jsonify({"status": "ok"}), 200
+    
+    # Application lifecycle handlers
+    @app.before_serving
+    async def before_serving():
+        """Initialize services before serving requests."""
+        app.logger.info("Starting up application services...")
+    
+    @app.after_serving
+    async def after_serving():
+        """Cleanup services after serving."""
+        app.logger.info("Shutting down application services...")
+        # Import here to avoid circular imports
+        from .api.routes import cleanup_llm_service
+        await cleanup_llm_service()
 
     return app
