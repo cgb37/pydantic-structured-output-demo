@@ -1,15 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pydantic Structured Output Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Enable dark mode by default
+    document.documentElement.classList.add('dark');
+  </script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
   {% include "partials/header.html" %}
-  <div class="container">
+  <div class="flex flex-1 w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 gap-4">
     {% include "partials/nav.html" %}
-    <main>
+    <main class="flex-1">
       {% block content %}{% endblock %}
     </main>
     {% include "partials/sidebar.html" %}
