@@ -1,0 +1,1 @@
+# pydantic-structured-output-demo
