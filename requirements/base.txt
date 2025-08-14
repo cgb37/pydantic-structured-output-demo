@@ -1,3 +1,4 @@
 # Core application dependencies
 quart==0.20.0
 pydantic>=2.0,<3
+httpx>=0.25.0
