@@ -30,3 +30,6 @@ Provide project context and coding guidelines that AI should follow when generat
    - Implement a RESTful API using Python Quart to serve the frontend.
    - Ensure the UI is accessible and follows best practices for usability.
    - The UI should be a generative chat interface that allows users to interact with the AI model.
+
+ 5. **Run the app**
+ - use docker compose to start the application
