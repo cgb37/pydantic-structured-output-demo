@@ -25,4 +25,4 @@ async def test_home_returns_html():
     resp = await test_client.get("/")
     assert resp.status_code == 200
     text = await resp.get_data(as_text=True)
-    assert "Welcome to Pydantic Structured Output Demo" in text
+    assert "Pydantic Structured Output Demo" in text

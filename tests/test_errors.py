@@ -1,9 +1,10 @@
 """Error handling tests."""
 import pytest
+import pytest_asyncio
 from webapp import create_app
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def app():
     """Create test app."""
     app = create_app()
@@ -11,7 +12,7 @@ async def app():
     return app
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def client(app):
     """Create test client."""
     return app.test_client()

@@ -1,12 +1,14 @@
 """API endpoint tests."""
 import pytest
+import pytest_asyncio
 import json
 import uuid
+from pydantic import ValidationError
 from webapp import create_app
 from webapp.schemas import ChatRequest, ChatResponse, ChatMessage
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def app():
     """Create test app."""
     app = create_app()
@@ -14,7 +16,7 @@ async def app():
     return app
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def client(app):
     """Create test client."""
     return app.test_client()
@@ -75,7 +77,7 @@ async def test_chat_endpoint_invalid_json(client):
     response = await client.post(
         "/api/chat", 
         data="invalid json",
-        content_type="application/json"
+        headers={"Content-Type": "application/json"}
     )
     
     assert response.status_code == 400
@@ -128,7 +130,7 @@ async def test_pydantic_validation():
     assert valid_response.choices[0].role == "assistant"
     
     # Test invalid role
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         ChatMessage(role="invalid_role", content="Test")
 
 
