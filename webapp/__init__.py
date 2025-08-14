@@ -8,6 +8,9 @@ def create_app() -> Quart:
     template_dir = os.path.join(base_dir, "templates")
     static_dir = os.path.join(base_dir, "static")
     app = Quart(__name__, template_folder=template_dir, static_folder=static_dir)
+    
+    # Enable debug mode for development
+    app.config['DEBUG'] = True
 
     # Register blueprints
     from .home import bp as home_bp

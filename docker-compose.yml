@@ -9,6 +9,7 @@ services:
       - PYTHONUNBUFFERED=1
       - QUART_APP=app:app
       - QUART_ENV=development
+      - QUART_DEBUG=1
     command: python -m quart run --host 0.0.0.0 --port 8001 --reload
     env_file:
       - .env
