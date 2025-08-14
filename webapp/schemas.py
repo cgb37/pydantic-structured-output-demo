@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing import List
+from pydantic import BaseModel, field_validator
+from typing import List, Literal
 
 
 class ChatRequest(BaseModel):
@@ -7,7 +7,7 @@ class ChatRequest(BaseModel):
 
 
 class ChatMessage(BaseModel):
-    role: str
+    role: Literal["user", "assistant", "system"]
     content: str
 
 
