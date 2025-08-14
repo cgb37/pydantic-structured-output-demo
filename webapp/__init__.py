@@ -3,7 +3,11 @@ from quart import Quart, jsonify
 
 def create_app() -> Quart:
     """Application factory for the Quart app."""
-    app = Quart(__name__, template_folder="templates", static_folder="static")
+    import os
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    template_dir = os.path.join(base_dir, "templates")
+    static_dir = os.path.join(base_dir, "static")
+    app = Quart(__name__, template_folder=template_dir, static_folder=static_dir)
 
     # Register blueprints
     from .home import bp as home_bp
