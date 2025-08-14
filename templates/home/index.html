@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="flex flex-col items-center justify-center w-full min-h-[70vh] p-0 sm:p-4 bg-gray-900">
+<div class="flex flex-col items-center justify-center w-full min-h-[70vh] p-0 sm:p-4 bg-gray-900 relative">
 	<div class="w-full max-w-3xl flex flex-col h-[80vh] sm:h-[70vh] bg-gray-800/90 rounded-lg shadow-2xl border border-gray-700 mt-0 sm:mt-8">
 		<div id="chat-window" class="flex-1 overflow-y-auto px-4 py-6 space-y-6 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
 			<!-- Chat messages will appear here -->
 		</div>
-		<form id="chat-form" class="flex gap-2 p-4 border-t border-gray-700 bg-gray-900/80">
+	</div>
+	<!-- Sticky chat input centered above the footer -->
+	<div class="fixed bottom-20 left-0 right-0 flex justify-center px-4 z-30">
+		<form id="chat-form" class="w-full max-w-3xl flex gap-2 p-4 border-t border-gray-700 bg-gray-900/95 backdrop-blur-sm rounded-lg shadow-xl">
 			<input id="user-input" type="text" placeholder="Type your message..." class="flex-1 bg-gray-800 text-gray-100 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 placeholder-gray-400" autocomplete="off" />
 			<button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition">Send</button>
 		</form>
 	</div>
 </div>
-
+<script src="/static/chat.js"></script>
 {% endblock %}
